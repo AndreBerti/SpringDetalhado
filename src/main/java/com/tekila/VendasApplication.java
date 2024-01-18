@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.tekila.config.Animal;
+import com.tekila.annotation.Cachorro;
 import com.tekila.repository.AnimalConfig;
 
 
@@ -43,10 +43,8 @@ public class VendasApplication {
     }
 	
 	
-	/*@autowired para fazer a injeçao de dependencia
-	 *@qualifer para qualificar, dizer quem é*/
-	@Autowired
-	@Qualifier("gato")
+	/*Agora basta usar a annotation criada @gato ou @cachorro*/
+	@Cachorro
 	private AnimalConfig animal;
 	
 	

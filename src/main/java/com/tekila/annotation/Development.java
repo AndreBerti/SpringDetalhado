@@ -14,9 +14,9 @@ import org.springframework.context.annotation.Profile;
  *++++++++++++++++
  *@Target(ElementType.TYPE)
   @Retention(RetentionPolicy.RUNTIME)
- *Sao sempre usadas quando voce cria uma annotation
- *o elementtype.type diz que voce so pode usar isso em uma classe
- **/
+ *Sao sempre usadas quando voce cria uma annotation o @Target e o @Retention
+ *OBS:ElementType.Type diz que so pode ser usado em classe
+ */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Configuration
