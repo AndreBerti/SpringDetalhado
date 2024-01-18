@@ -2,15 +2,14 @@ package com.tekila.config;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
+
+import com.tekila.annotation.Development;
 
 
 /*
- * @profile vai dizer qual a application.properties vai ser usada
+ * agora basta botar apenas o @development que foi criado
  * */
-@Configuration
-@Profile("development")
+@Development
 public class devConfig {
 	@Bean
 	public CommandLineRunner executar() {
