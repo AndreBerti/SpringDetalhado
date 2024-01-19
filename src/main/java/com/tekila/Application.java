@@ -18,23 +18,30 @@ public class Application {
 	@Bean
 	public CommandLineRunner init(@Autowired ClienteRepository clienteRepository) {
 		return args-> {
-			Cliente cliente= new Cliente();
-			cliente.setNome("Tekila");
-			clienteRepository.salvar(cliente);
-			Cliente cliente1= new Cliente();
-			cliente1.setNome("André");
-			clienteRepository.salvar(cliente1);
-			Cliente cliente2= new Cliente();
-			cliente2.setNome("Vanessa");
-			clienteRepository.salvar(cliente2);
-			Cliente cliente3= new Cliente();
-			cliente3.setNome("Godofrego");
-			clienteRepository.salvar(cliente3);
+			clienteRepository.salvar(new Cliente("Tekila"));
+			clienteRepository.salvar(new Cliente("André"));
+			clienteRepository.salvar(new Cliente("Vanessa"));
+			clienteRepository.salvar(new Cliente("Osvaldo"));
+			clienteRepository.salvar(new Cliente("Valdo"));
+			clienteRepository.salvar(new Cliente("Iago"));
+			clienteRepository.salvar(new Cliente("Yago"));
+			clienteRepository.salvar(new Cliente("vou excluir"));
 			
 			List<Cliente> todosClientes = clienteRepository.obterTodos();
 			for(Cliente x:todosClientes) {
 				System.out.println(x);
 			}
+			
+			
+			clienteRepository.deletar(2);
+			clienteRepository.obterTodos();
+			//clienteRepository.atualizar("André","Dede");
+			for(Cliente x:todosClientes) {
+				System.out.println(x);
+			}
+			
+			
+			
 		};
 	}
 	
