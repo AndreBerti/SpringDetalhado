@@ -16,7 +16,7 @@ public class ClienteRepository {
 
 	private static String INSERT = "insert into cliente (nome) values (?)";
 	private static String SELECT_ALL = "select * from cliente";
-	private static String UPDATE = "update cliente set nome = ? where id=?";
+	private static String UPDATE = "update cliente set nome = ? where nome=?";
 	private static String DELETE = "delete from cliente where id = ? ";
 	private static String BUSCA_NOME = "select * from cliente where nome like ?";
 
@@ -36,8 +36,8 @@ public class ClienteRepository {
 	 * 1º parametro é o comando sql (um PreparedStatement)e o restante é a
 	 * complementação do generic
 	 */
-	public void atualizar(String nomeAntigo, String nomeNovo) {
-		jdbcTemplete.update(UPDATE, new Object[] { nomeAntigo, nomeNovo });
+	public void atualizar(String nomeNovo, String nomeAntigo) {
+		jdbcTemplete.update(UPDATE, new Object[] {nomeAntigo,nomeNovo });
 	}
 
 	/*
@@ -51,7 +51,6 @@ public class ClienteRepository {
 	/* sobrecarga de metodo, se quiser pode deletar passando direto o ID */
 	public void deletar(Integer id) {
 		jdbcTemplete.update(DELETE, new Object[] {id});
-		System.out.println("será que deletou?");
 	}
 
 	

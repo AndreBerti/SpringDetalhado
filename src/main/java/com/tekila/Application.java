@@ -33,9 +33,9 @@ public class Application {
 			}
 			
 			
-			clienteRepository.deletar(2);
-			clienteRepository.obterTodos();
-			//clienteRepository.atualizar("André","Dede");
+			clienteRepository.deletar(8);
+			clienteRepository.atualizar("André","Dede");
+			todosClientes=clienteRepository.obterTodos();
 			for(Cliente x:todosClientes) {
 				System.out.println(x);
 			}
