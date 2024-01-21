@@ -7,6 +7,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Repository;
 
 import com.tekila.domain.entity.Cliente;
 import com.tekila.domain.repositories.ClienteRepository;
@@ -26,7 +27,6 @@ public class Application {
 			clienteRepository.salvar(new Cliente("Iago"));
 			clienteRepository.salvar(new Cliente("Yago"));
 			clienteRepository.salvar(new Cliente("vou excluir"));
-			/*
 			List<Cliente> todosClientes = clienteRepository.obterTodos();
 			for(Cliente x:todosClientes) {
 				System.out.println(x);
@@ -34,17 +34,20 @@ public class Application {
 			
 			
 			clienteRepository.deletar(8);
-			clienteRepository.atualizar("André","Dede");
-			todosClientes=clienteRepository.obterTodos();
+			String nomeVelho="Valdo";
+			String nomeNovo="Jorginho";
+			
 			for(Cliente x:todosClientes) {
-				System.out.println(x);
+				if(x.getNome().toUpperCase().equals(nomeVelho.toUpperCase())) {
+					x.setNome(nomeNovo);
+					clienteRepository.atualizar(x);
+				}
 			}
 			
-			todosClientes=clienteRepository.buscarPorNome("ago");
+			todosClientes=clienteRepository.buscarNome("ago");
 			for(Cliente x:todosClientes) {
 				System.out.println(x);
 			}
-			*/
 			
 			
 		};
