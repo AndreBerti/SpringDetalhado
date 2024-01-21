@@ -40,6 +40,11 @@ public class Application {
 				System.out.println(x);
 			}
 			
+			todosClientes=clienteRepository.buscarPorNome("ago");
+			for(Cliente x:todosClientes) {
+				System.out.println(x);
+			}
+			
 			
 			
 		};

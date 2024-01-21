@@ -18,7 +18,7 @@ public class ClienteRepository {
 	private static String SELECT_ALL = "select * from cliente";
 	private static String UPDATE = "update cliente set nome = ? where nome=?";
 	private static String DELETE = "delete from cliente where id = ? ";
-	private static String BUSCA_NOME = "select * from cliente where nome like ?";
+	
 
 	@Autowired
 	private JdbcTemplate jdbcTemplete;
@@ -61,7 +61,7 @@ public class ClienteRepository {
 	 * e por fim usa o RowMapper para ele retornar o resultado da pequisa.
 	 * */
 	public List<Cliente> buscarPorNome(String nome) {
-		return jdbcTemplete.query(BUSCA_NOME, new Object[] {"%"+nome+"%"}
+		return jdbcTemplete.query("select * from cliente where nome like '%"+nome+"%'"
 				, new RowMapper<Cliente>() {
             @Override
             public Cliente mapRow(ResultSet resultSet, int i) throws SQLException {
