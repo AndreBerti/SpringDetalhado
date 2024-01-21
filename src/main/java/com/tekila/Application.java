@@ -26,7 +26,7 @@ public class Application {
 			clienteRepository.salvar(new Cliente("Iago"));
 			clienteRepository.salvar(new Cliente("Yago"));
 			clienteRepository.salvar(new Cliente("vou excluir"));
-			
+			/*
 			List<Cliente> todosClientes = clienteRepository.obterTodos();
 			for(Cliente x:todosClientes) {
 				System.out.println(x);
@@ -44,7 +44,7 @@ public class Application {
 			for(Cliente x:todosClientes) {
 				System.out.println(x);
 			}
-			
+			*/
 			
 			
 		};
