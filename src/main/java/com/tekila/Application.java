@@ -45,7 +45,7 @@ public class Application {
 				
 			}
 			
-			todosClientes=clienteRepository.findByNomeLike("%ago%");
+			todosClientes=clienteRepository.encontrarPorNome("%ago%");
 			for(Cliente x:todosClientes) {
 				System.out.println(x);
 			}

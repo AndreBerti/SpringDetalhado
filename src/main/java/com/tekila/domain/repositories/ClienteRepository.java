@@ -3,6 +3,8 @@ package com.tekila.domain.repositories;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.tekila.domain.entity.Cliente;
@@ -13,6 +15,19 @@ import com.tekila.domain.entity.Cliente;
 @Repository
 public interface ClienteRepository extends JpaRepository<Cliente, Integer> {
 
+		
+	/*
+	 * Existe dentro do pacote um padrão ja de comandos SQL pelo JpaRepository
+	 * Exemplo, tem o FindByAll, mas se eu quiser pesquisar por outro atributo da classe Cliente, por exemplo Nome
+	 * ele vai entender que vai ser o FindByNOME_DO_ATRIBUTO, que você deseja procurar
+	 * */
 	List<Cliente> findByNomeLike(String nome);
+	
+	/*
+	 * Da mesma forma, você pode criar sua Query, caso os padrões não sejam suficientes.
+	 * */
+	
+	@Query(value="Select c from Cliente c where c.nome like :nome ")
+	List<Cliente> encontrarPorNome(@Param("nome") String nome);
 	
 }
