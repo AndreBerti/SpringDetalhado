@@ -25,9 +25,11 @@ public interface ClienteRepository extends JpaRepository<Cliente, Integer> {
 	
 	/*
 	 * Da mesma forma, você pode criar sua Query, caso os padrões não sejam suficientes.
+	 * Não é necessario usar o comando JPQL, é possivel usar os comandos SQL
+	 * basta informar tambem que usará uma query nativa do sql, nativeQuery=true
 	 * */
 	
-	@Query(value="Select c from Cliente c where c.nome like :nome ")
+	@Query(value="Select * from tb_cliente c where c.nome like '%nome%' ",nativeQuery = true)
 	List<Cliente> encontrarPorNome(@Param("nome") String nome);
 		
 	/*

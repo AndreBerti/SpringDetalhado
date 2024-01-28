@@ -28,7 +28,7 @@ public class Application {
 			clienteRepository.save(new Cliente("Yago"));
 			clienteRepository.save(new Cliente("vou excluir"));
 			List<Cliente> todosClientes = clienteRepository.findAll();
-			for(Cliente x:todosClientes) {
+			/*for(Cliente x:todosClientes) {
 				System.out.println(x);
 			}
 			
@@ -44,13 +44,14 @@ public class Application {
 			for(Cliente x:todosClientes) {
 				
 			}
-			
-			todosClientes=clienteRepository.encontrarPorNome("%ago%");
+			*/
+			todosClientes.forEach(System.out::println);
+			todosClientes=clienteRepository.encontrarPorNome("a");
 			for(Cliente x:todosClientes) {
 				System.out.println(x);
 			}
 			
-			System.out.println("Existe o nome Tekila? "+clienteRepository.existsByNome("Tekila"));
+			//System.out.println("Existe o nome Tekila? "+clienteRepository.existsByNome("Tekila"));
 		};
 	}
 	
