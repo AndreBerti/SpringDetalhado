@@ -19,32 +19,33 @@ public class Application {
 	@Bean
 	public CommandLineRunner init(@Autowired ClienteRepository clienteRepository) {
 		return args-> {
-			clienteRepository.salvar(new Cliente("Tekila"));
-			clienteRepository.salvar(new Cliente("André"));
-			clienteRepository.salvar(new Cliente("Vanessa"));
-			clienteRepository.salvar(new Cliente("Osvaldo"));
-			clienteRepository.salvar(new Cliente("Valdo"));
-			clienteRepository.salvar(new Cliente("Iago"));
-			clienteRepository.salvar(new Cliente("Yago"));
-			clienteRepository.salvar(new Cliente("vou excluir"));
-			List<Cliente> todosClientes = clienteRepository.obterTodos();
+			clienteRepository.save(new Cliente("Tekila"));
+			clienteRepository.save(new Cliente("André"));
+			clienteRepository.save(new Cliente("Vanessa"));
+			clienteRepository.save(new Cliente("Osvaldo"));
+			clienteRepository.save(new Cliente("Valdo"));
+			clienteRepository.save(new Cliente("Iago"));
+			clienteRepository.save(new Cliente("Yago"));
+			clienteRepository.save(new Cliente("vou excluir"));
+			List<Cliente> todosClientes = clienteRepository.findAll();
 			for(Cliente x:todosClientes) {
 				System.out.println(x);
 			}
 			
 			
-			clienteRepository.deletar(8);
+			for(Cliente x:todosClientes) {
+				if(x.getNome().equals("vou excluir"))
+					clienteRepository.delete(x);
+			}
+			
 			String nomeVelho="Valdo";
 			String nomeNovo="Jorginho";
 			
 			for(Cliente x:todosClientes) {
-				if(x.getNome().toUpperCase().equals(nomeVelho.toUpperCase())) {
-					x.setNome(nomeNovo);
-					clienteRepository.atualizar(x);
-				}
+				
 			}
 			
-			todosClientes=clienteRepository.buscarNome("ago");
+			todosClientes=clienteRepository.findByNomeLike("%ago%");
 			for(Cliente x:todosClientes) {
 				System.out.println(x);
 			}
