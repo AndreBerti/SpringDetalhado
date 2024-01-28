@@ -50,7 +50,7 @@ public class Application {
 				System.out.println(x);
 			}
 			
-			
+			System.out.println("Existe o nome Tekila? "+clienteRepository.existsByNome("Tekila"));
 		};
 	}
 	

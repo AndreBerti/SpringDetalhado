@@ -29,5 +29,9 @@ public interface ClienteRepository extends JpaRepository<Cliente, Integer> {
 	
 	@Query(value="Select c from Cliente c where c.nome like :nome ")
 	List<Cliente> encontrarPorNome(@Param("nome") String nome);
-	
+		
+	/*
+	 * O parametro Exists verifica se existe e retorna um boolean
+	 * */
+	boolean existsByNome(String nome);
 }
